@@ -7,18 +7,20 @@ This is NOT magic - it's just keeping track of message history!
 
 from dotenv import load_dotenv
 load_dotenv()
+from agno.db.sqlite import SqliteDb
 
 from agno.agent import Agent
 from agno.models.openai import OpenAIChat
-from agno.memory import AgentMemory
 from agno.tools.calculator import CalculatorTools
 
 agent = Agent(
     model=OpenAIChat(id="gpt-4o-mini"),
     tools=[CalculatorTools()],
-    memory=AgentMemory(),  # This enables conversation memory!
+    add_history_to_context=True,
+    num_history_runs=3,
+    db=SqliteDb(db_file="tmp/data.db"),
     instructions="You are a friendly assistant. Remember what the user tells you.",
-    show_tool_calls=True
+    debug_mode=True
 )
 
 # Multi-turn conversation

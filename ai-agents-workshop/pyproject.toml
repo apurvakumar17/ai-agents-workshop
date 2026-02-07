@@ -9,4 +9,6 @@ dependencies = [
     "openai>=1.0.0",
     "duckduckgo-search>=4.0.0",
     "python-dotenv>=1.0.0",
+    "ddgs>=9.10.0",
+    "sqlalchemy>=2.0.46"
 ]
