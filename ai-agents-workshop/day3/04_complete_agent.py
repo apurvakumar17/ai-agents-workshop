@@ -15,10 +15,10 @@ import random
 from datetime import datetime
 from agno.agent import Agent
 from agno.models.openai import OpenAIChat
-from agno.memory import AgentMemory
 from agno.tools.calculator import CalculatorTools
 from agno.tools.duckduckgo import DuckDuckGoTools
 from agno.tools import tool
+from agno.db.sqlite import SqliteDb
 
 # Custom tools
 @tool
@@ -54,7 +54,9 @@ agent = Agent(
         roll_dice,
         make_decision
     ],
-    memory=AgentMemory(),
+    add_history_to_context=True,
+    num_history_runs=3,
+    db=SqliteDb(db_file="tmp/data.db"),
     instructions="""You are a helpful personal assistant named Aria.
 
 Your capabilities:
@@ -66,7 +68,6 @@ Your capabilities:
 
 Be friendly, helpful, and remember what the user tells you.
 When using tools, briefly explain what you're doing.""",
-    show_tool_calls=True
 )
 
 # Interactive chat loop
