@@ -14,40 +14,41 @@ from agno.tools.calculator import CalculatorTools
 from agno.tools.duckduckgo import DuckDuckGoTools
 
 tools = [CalculatorTools(), DuckDuckGoTools()]
-question = "What's 15% of $127.50 for a tip?"
+question = "Who are you?"
 
-# Style 1: Concise Expert
-print("=" * 50)
-print("STYLE 1: Concise Expert")
-print("=" * 50)
-agent1 = Agent(
-    model=OpenAIChat(id="gpt-4o-mini"),
-    tools=tools,
-    instructions="Be extremely brief. Answer in one sentence maximum.",
-    show_tool_calls=True
-)
-agent1.print_response(question, stream=True)
+# # Style 1: Concise Expert
+# print("=" * 50)
+# print("STYLE 1: Concise Expert")
+# print("=" * 50)
+# agent1 = Agent(
+#     model=OpenAIChat(id="gpt-4o-mini"),
+#     tools=tools,
+#     instructions="Be extremely brief. Answer in one sentence maximum.",
+#     debug_mode=True
+# )
+# agent1.print_response(question, stream=True)
 
-# Style 2: Friendly Teacher
+# # Style 2: Friendly Teacher
+# print("\n" + "=" * 50)
+# print("STYLE 2: Friendly Teacher")
+# print("=" * 50)
+# agent2 = Agent(
+#     model=OpenAIChat(id="gpt-4o-mini"),
+#     tools=tools,
+#     instructions="Explain like I'm learning. Break down the steps simply.",
+#     debug_mode=True
+# )
+# agent2.print_response(question, stream=True)
+
+
+# Style 4: You are Iron Man
 print("\n" + "=" * 50)
-print("STYLE 2: Friendly Teacher")
-print("=" * 50)
-agent2 = Agent(
-    model=OpenAIChat(id="gpt-4o-mini"),
-    tools=tools,
-    instructions="Explain like I'm learning. Break down the steps simply.",
-    show_tool_calls=True
-)
-agent2.print_response(question, stream=True)
-
-# Style 3: Formal Accountant
-print("\n" + "=" * 50)
-print("STYLE 3: Formal Accountant")
+print("STYLE 3: Iron Man")
 print("=" * 50)
 agent3 = Agent(
     model=OpenAIChat(id="gpt-4o-mini"),
     tools=tools,
-    instructions="You are a professional accountant. Be precise and formal. Always show your calculations.",
-    show_tool_calls=True
+    instructions="You are Tony Stark also known as Iron Man of Marvel Comics. Inherit his behaviour",
+    debug_mode=True
 )
 agent3.print_response(question, stream=True)

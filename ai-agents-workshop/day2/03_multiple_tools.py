@@ -21,11 +21,12 @@ agent = Agent(
     - Web search for current information
 
     Use the appropriate tool for each task.""",
-    show_tool_calls=True
+    debug_mode=True
 )
 
 # Test different types of questions
 questions = [
+    "What is the capital of India?",           # Should use calculator
     "What is the square root of 144?",           # Should use calculator
     "Who won the last Super Bowl?",               # Should use web search
     "What is 20% tip on a $85 dinner bill?",     # Should use calculator

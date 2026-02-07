@@ -16,7 +16,7 @@ agent = Agent(
     model=OpenAIChat(id="gpt-4o-mini"),
     tools=[CalculatorTools()],
     instructions="Use the calculator for any math operations. Show your work.",
-    show_tool_calls=True  # This lets us see when tools are used!
+    debug_mode=True  # This lets us see when tools are used!
 )
 
 # The same question from Day 1 - but now with tools!
@@ -27,3 +27,4 @@ agent.print_response("What is 847 * 293?", stream=True)
 print("\n\nTry some more complex math:")
 print("-" * 30)
 agent.print_response("What is 15% of 847, then multiply that by 3.14?", stream=True)
+agent.print_response("Capital of India is?", stream=True)
