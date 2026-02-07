@@ -16,7 +16,7 @@ agent = Agent(
     model=OpenAIChat(id="gpt-4o-mini"),
     tools=[CalculatorTools()],
     instructions="Use the calculator for any math operations. Show your work.",
-    show_tool_calls=True  # This lets us see when tools are used!
+    debug_mode=True  # This lets us see when tools are used!
 )
 
 # The same question from Day 1 - but now with tools!

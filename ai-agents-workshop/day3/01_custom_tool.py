@@ -51,7 +51,6 @@ agent = Agent(
     model=OpenAIChat(id="gpt-4o-mini"),
     tools=[roll_dice, flip_coin, random_number],
     instructions="You are a game master. Use your tools to help with games and random decisions.",
-    show_tool_calls=True
 )
 
 # Test the custom tools
